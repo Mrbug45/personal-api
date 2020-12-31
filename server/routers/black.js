@@ -1,7 +1,7 @@
 const black = require('express').Router();
 const puppeteer = require("puppeteer");
 
-async function getData(URL) {
+async function getData(text) {
     const browser = await puppeteer.launch({
         headless: true,
         args: ['--no-sandbox', '--disable-setuid-sandbox']
@@ -9,7 +9,7 @@ async function getData(URL) {
     const page = await browser.newPage();
     await page.goto('https://textpro.me/create-blackpink-logo-style-online-1001.html');
 
-    await page.type('#text-0', `$(URL)`);
+    await page.type('#text-0', `$(text)`);
     await page.click('#submit', { delay: 300 });
 
     await page.waitForSelector('#content-wrapper > section > div > div.col-md-9 > div.row > div:nth-child(1) > div > div > a', {delay: 300});
@@ -21,8 +21,8 @@ async function getData(URL) {
 }
 
 black.get('/', async (req, res) => {
-    var URL = req.query.URL;
-    const gets = await getData(URL);
+    var text = req.query.text;
+    const gets = await getData(text);
     res.json(gets)
 });
 
