@@ -16,6 +16,7 @@ async function getData(text) {
     let result = await page.$eval("#content-wrapper > section > div > div.col-md-9 > div.row > div:nth-child(1) > div > div > a", (element) => {
         return element.getAttribute("src");
     });
+    await page.click('#dismiss-button > div > svg', { delay: 300 });
         browser.close();
     return { result }
 }
