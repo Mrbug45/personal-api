@@ -15,7 +15,7 @@ async function getGambar(text) {
 
     await page.waitForSelector('#content-wrapper > section > div > div.col-md-9 > div:nth-child(4) > div > img')
     let poster = await page.$eval('#content-wrapper > section > div > div.col-md-9 > div:nth-child(4) > div > img', (element) => {
-        return element.getAttribute("poster")
+        return element.getAttribute("poster");
     });
     let pngdirect = await page.$eval('#content-wrapper > section > div > div.col-md-9 > div.row > div:nth-child(1) > div > div > a', (element) => {
         return element.getAttribute("href");
