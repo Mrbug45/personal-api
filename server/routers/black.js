@@ -1,4 +1,4 @@
-const blackpink = require('express').Router();
+const black = require('express').Router();
 const puppeteer = require("puppeteer");
 
 async function getData(URL) {
@@ -20,10 +20,10 @@ async function getData(URL) {
     return { images }
 }
 
-blackpink.get('/', async (req, res) => {
+black.get('/', async (req, res) => {
     var URL = req.query.URL;
     const gets = await getData(URL);
     res.json(gets)
 });
 
-module.exports = blackpink;
+module.exports = black;
