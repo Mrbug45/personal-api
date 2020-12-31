@@ -12,7 +12,7 @@ async function getData(URL) {
     await page.type('#text-0', `$(URL)`);
     await page.click('#submit', { delay: 300 });
 
-    await page.waitForSelector('#content-wrapper > section > div > div.col-md-9 > div:nth-child(4) > div > img' {delay: 300});
+    await page.waitForSelector('#content-wrapper > section > div > div.col-md-9 > div:nth-child(4) > div > img', {delay: 300});
     let images = await page.$eval('#content-wrapper > section > div > div.col-md-9 > div:nth-child(4) > div > img', (element) => {
         return element.getAttribute("src");
     });
