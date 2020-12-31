@@ -1,4 +1,4 @@
-const blackpink require('express').Router();
+const blackpink = require('express').Router();
 const puppeteer = require("puppeteer");
 
 async function getGambar(URL) {
