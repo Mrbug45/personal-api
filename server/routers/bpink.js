@@ -24,7 +24,7 @@ async function getGambar(text) {
 }
 
 blackpink.get('/', async (req, res) => {
-    var URL = req.query.text;
+    var text = req.query.text;
     const gets = await getGambar(text);
     res.json(gets)
 });
