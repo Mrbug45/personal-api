@@ -12,12 +12,12 @@ async function getData(URL) {
     await page.type('#text-0', `$(URL)`);
     await page.click('#submit', { delay: 300 });
 
-    await page.waitForSelector('#content-wrapper > section > div > div.col-md-9 > div:nth-child(4) > div > img', {delay: 300});
-    let images = await page.$eval("#content-wrapper > section > div > div.col-md-9 > div:nth-child(4) > div > img", (element) => {
+    await page.waitForSelector('#content-wrapper > section > div > div.col-md-9 > div.row > div:nth-child(1) > div > div > a', {delay: 300});
+    let result = await page.$eval("#content-wrapper > section > div > div.col-md-9 > div.row > div:nth-child(1) > div > div > a", (element) => {
         return element.getAttribute("src");
     });
         browser.close();
-    return { images }
+    return { result }
 }
 
 black.get('/', async (req, res) => {
