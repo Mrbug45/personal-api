@@ -3,7 +3,7 @@ const puppeteer = require("puppeteer");
 
 async function getGambar(text) {
     const browser = await puppeteer.launch({
-        handless: true,
+        headless: true,
         args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
     const page = await browser.newPage();
