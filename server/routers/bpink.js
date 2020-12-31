@@ -1,7 +1,7 @@
 const blackpink require('express').Router();
 const puppeteer = require("puppeteer");
 
-async function getGambar(text) {
+async function getGambar(URL) {
     const browser = await puppeteer.launch({
         headless: true,
         args: ['--no-sandbox', '--disable-setuid-sandbox']
@@ -9,7 +9,7 @@ async function getGambar(text) {
     const page = await browser.newPage();
     await page.goto('https://textpro.me/create-blackpink-logo-style-online-1001.html/');
 
-    await page.type('#text-0', `$(text)`);
+    await page.type('#text-0', `$(URL)`);
     await page.click('#submit', { delay: 300 });
 
     await page.waitForSelector('#content-wrapper > section > div > div.col-md-9 > div:nth-child(4) > div > img' {delay: 300});
@@ -24,8 +24,8 @@ async function getGambar(text) {
 }
 
 blackpink.get('/', async (req, res) => {
-    var text = req.query.text;
-    const gets = await getGambar(text);
+    var URL = req.query.URL;
+    const gets = await getGambar(URL);
     res.json(gets)
 });
 
