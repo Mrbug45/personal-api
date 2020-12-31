@@ -12,8 +12,8 @@ async function getData(URL) {
     await page.type('#text-0', `$(URL)`);
     await page.click('#submit', { delay: 300 });
 
-    await page.waitForSelector('#content-wrapper > section > div > div.col-md-9 > div.row > div:nth-child(1) > div > div > a', {delay: 300});
-    let images = await page.$eval('#content-wrapper > section > div > div.col-md-9 > div.row > div:nth-child(1) > div > div > a', (element) => {
+    await page.waitForSelector('#share_link', {delay: 300});
+    let images = await page.$eval('#share_link', (element) => {
         return element.getAttribute("src");
     });
         browser.close();
