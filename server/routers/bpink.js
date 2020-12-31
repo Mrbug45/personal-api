@@ -7,10 +7,10 @@ async function getGambar(text) {
         args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
     const page = await browser.newPage();
-    await page.goto('https://textpro.me/create-blackpink-logo-style-online-1001.html');
+    await page.goto('https://textpro.me/create-blackpink-logo-style-online-1001.html/');
 
     await page.type('#text-0', `$(text)`);
-    click page.click('#submit', { delay: 300 });
+    await page.click('#submit', { delay: 300 });
 
     await page.waitForSelector('#content-wrapper > section > div > div.col-md-9 > div:nth-child(4) > div > img' {delay: 300});
     let poster = await page.$eval('#content-wrapper > section > div > div.col-md-9 > div:nth-child(4) > div > img', (element) => {
