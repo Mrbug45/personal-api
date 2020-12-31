@@ -11,15 +11,16 @@ async function getData(URL) {
 
     await page.type('#text-0', `$(URL)`);
     await page.click('#submit', { delay: 300 });
-
+    await page.click('#dismiss-button > div > svg', { delay: 300 });
+    
     await page.waitForSelector('#content-wrapper > section > div > div.col-md-9 > div.row > div:nth-child(1) > div > div > a', {delay: 300});
     let result = await page.$eval("#content-wrapper > section > div > div.col-md-9 > div.row > div:nth-child(1) > div > div > a", (element) => {
         return element.getAttribute("src");
     });
-    await page.click('#dismiss-button > div > svg', { delay: 300 });
+
         browser.close();
     return { result }
-}
+
 
 black.get('/', async (req, res) => {
     var URL = req.query.URL;
