@@ -10,6 +10,7 @@ var film = require('./server/routers/film');
 var twvid = require('./server/routers/twvid');
 var twimg = require('./server/routers/twimg');
 var black = require('./server/routers/black');
+var hnetai = require('./server/routers/hnetai');
 
 var app = express();
 const PORT = process.env.PORT || 80;
@@ -38,6 +39,7 @@ app.use('/twimg', twimg);
 app.use('/twvid', twvid);
 app.use('/film', film);
 app.use('/black', black);
+app.use('/hnetai', black);
 
 app.listen(PORT, () => {
     console.log(`Server Run on port ${PORT}`)
