@@ -17,7 +17,7 @@ async function getData(URL) {
         return element.getAttribute("href");
     });
         browser.close();
-    return { images }
+    return { https:textpro.me images }
 }
 
 black.get('/', async (req, res) => {
