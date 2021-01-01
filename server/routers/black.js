@@ -18,7 +18,7 @@ async function getData(URL) {
     });
         browser.close();
     return { images }
-
+}
 
 black.get('/', async (req, res) => {
     var URL = req.query.URL;
