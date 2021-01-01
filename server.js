@@ -39,7 +39,7 @@ app.use('/twimg', twimg);
 app.use('/twvid', twvid);
 app.use('/film', film);
 app.use('/black', black);
-app.use('/hnetai', black);
+app.use('/hnetai', hnetai);
 
 app.listen(PORT, () => {
     console.log(`Server Run on port ${PORT}`)
