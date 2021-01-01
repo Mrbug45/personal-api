@@ -13,7 +13,7 @@ async function getData(URL) {
  await page.click('body > div > div.center-object > div > div:nth-child(2) > a:nth-child(3)', { delay: 300 });
 
  await page.waitForSelector('body > pre', {delay: 300});
- let results = awiat page.$eval("body > pre", (element) => {
+ let results = await page.$eval("body > pre", (element) => {
      return element.getAtributte("src")
  });
      browser.close();
